@@ -9,6 +9,22 @@ var tcpClients = [];
 var websocketClients = [];
 
 //
+// Dumb index page
+//
+var server = http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': "text/plain"});
+    res.end("hello world");
+});
+server.listen(80);
+try {
+    process.setgit('users');
+    process.setuid('tyoverby');
+} catch (e) {
+    console.log("unable to drop privleges");
+    process.exit();
+}
+
+//
 // Websockets
 //
 var wss = new WebSocketServer({port: 8080});
