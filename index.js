@@ -11,7 +11,7 @@ var websocketClients = [];
 //
 // Websockets
 //
-var wss = new WebSocketServer({host:"localhost", port: 8080});
+var wss = new WebSocketServer({port: 8080});
 wss.on('connection', function (socket) {
     socket.name = "ws:" + Math.random();
     socket.write = socket.send;
