@@ -13,14 +13,15 @@ var websocketClients = [];
 //
 var server = http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': "text/plain"});
-    res.end("hello world");
+    res.end("tcp on port 5000, websockets on port 8080");
 });
 server.listen(80);
 try {
-    process.setgit('users');
+    process.setgid('tyoverby');
     process.setuid('tyoverby');
 } catch (e) {
     console.log("unable to drop privleges");
+    console.log(process.getgid());
     process.exit();
 }
 
